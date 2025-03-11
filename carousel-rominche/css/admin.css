@@ -1,0 +1,99 @@
+/* Styles pour l'administration du carousel */
+.carousel-admin-container {
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.carousel-images-container {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#carousel-images-list {
+    margin-bottom: 20px;
+}
+
+.carousel-image-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+.carousel-image-preview {
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 20px;
+    border: 1px solid #ddd;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.carousel-image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.carousel-image-details {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.carousel-image-details label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.carousel-image-details input[type="text"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.carousel-image-details textarea {
+    width: 100%;
+    margin-top: 5px;
+    resize: vertical;
+}
+
+.carousel-actions {
+    margin-top: 15px;
+}
+
+.carousel-shortcode-info {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+}
+
+.carousel-shortcode-info code {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #f1f1f1;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Styles pour les boutons */
+.remove-image {
+    color: #a00;
+    align-self: flex-start;
+    margin-top: 5px;
+}
+
+.remove-image:hover {
+    color: #dc3232;
+    border-color: #dc3232;
+} 
