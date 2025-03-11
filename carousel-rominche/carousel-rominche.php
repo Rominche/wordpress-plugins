@@ -2,14 +2,14 @@
 /*
 Plugin Name: Carousel Rominche
 Description: Un carousel personnalisé en JavaScript avec téléversement d'images.
-Version: 1.1
+Version: 1.2
 Author: Rominche
-Author URI: https://github.com/votre-nom
+Author URI: https://github.com/Rominche
 Text Domain: carousel-rominche
 Domain Path: /languages
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-GitHub Plugin URI: https://github.com/votre-nom/carousel-rominche
+GitHub Plugin URI: https://github.com/Rominche/wordpress-plugins/carousel-rominche
 */
 
 // Empêche l'accès direct au fichier

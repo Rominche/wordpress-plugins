@@ -16,7 +16,7 @@ Un plugin WordPress élégant pour créer des carousels d'images avec titres et 
 
 ### Méthode 1 : Installation depuis GitHub
 
-1. Téléchargez la dernière version du plugin depuis [la page des releases](https://github.com/votre-nom/carousel-rominche/releases)
+1. Téléchargez la dernière version du plugin depuis [la page des releases](https://github.com/Rominche/carousel-rominche/releases)
 2. Dans votre administration WordPress, allez dans "Extensions" > "Ajouter" > "Téléverser une extension"
 3. Sélectionnez le fichier ZIP téléchargé
 4. Cliquez sur "Installer maintenant" puis "Activer"
