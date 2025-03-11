@@ -20,11 +20,18 @@
             // Variables pour le suivi
             let currentIndex = 0;
             
+            // Masquer toutes les slides d'abord
+            $slides.css({
+                'opacity': 0,
+                'visibility': 'hidden'
+            });
+            
             // Marquer la première slide comme active
-            $slides.eq(0).addClass('active').css({
+            $slides.eq(0).css({
                 'opacity': 1,
                 'visibility': 'visible'
-            });
+            }).addClass('active');
+            
             $indicators.eq(0).css('background-color', '#000').addClass('active');
             
             // Fonction pour déplacer vers une slide spécifique
@@ -37,26 +44,24 @@
                     'visibility': 'hidden'
                 });
                 
-                // Activer la slide cible
-                $slides.eq(index).addClass('active').css({
-                    'opacity': 1,
-                    'visibility': 'visible'
-                });
+                // Activer la slide cible avec un délai pour la transition
+                setTimeout(() => {
+                    $slides.eq(index).addClass('active').css({
+                        'opacity': 1,
+                        'visibility': 'visible'
+                    });
+                }, 50);
                 
                 // Mettre à jour les indicateurs
                 $indicators.each(function(i) {
                     if (i === index) {
-                        $(this).css('background-color', '#000');
-                        $(this).addClass('active');
+                        $(this).css('background-color', '#000').addClass('active');
                     } else {
-                        $(this).css('background-color', 'rgba(150, 150, 150, 0.7)');
-                        $(this).removeClass('active');
+                        $(this).css('background-color', 'rgba(150, 150, 150, 0.7)').removeClass('active');
                     }
                 });
                 
                 currentIndex = index;
-                
-                // Mettre à jour l'état des boutons
                 updateButtons();
             }
             
