@@ -66,20 +66,20 @@ function mon_carousel_shortcode() {
     
     ob_start(); // Démarre la temporisation de sortie
     ?>
-    <div class="carousel-container" style="height: 800px;">
-        <div class="carousel-track">
+    <div class="carousel-container" style="position: relative; width: 100%; max-width: 100%; height: 100vh; max-height: 800px; margin: 0 auto; overflow: hidden;">
+        <div class="carousel-track" style="position: relative; height: 100%; width: 100%;">
             <?php foreach ($carousel_images as $image) : ?>
-                <div class="carousel-slide" style="background-image: url('<?php echo esc_url($image['url']); ?>'); height: 800px; background-position: center; background-size: cover; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center;">
+                <div class="carousel-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-image: url('<?php echo esc_url($image['url']); ?>'); background-position: center; background-size: cover; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center;">
                     <!-- Overlay sombre -->
-                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
                     
-                    <div class="carousel-content" style="position: relative; z-index: 2; color: white; text-align: center; padding: 30px; max-width: 80%;">
+                    <div class="carousel-content" style="position: relative; z-index: 2; color: white; text-align: center; padding: 15px; width: 90%; max-width: 800px; margin: 0 auto;">
                         <?php if (!empty($image['title'])) : ?>
-                            <div class="carousel-caption" style="font-size: 28px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); color: white;"><?php echo esc_html($image['title']); ?></div>
+                            <div class="carousel-caption" style="font-size: clamp(20px, 4vw, 28px); font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); color: white;"><?php echo esc_html($image['title']); ?></div>
                         <?php endif; ?>
                         
                         <?php if (!empty($image['description'])) : ?>
-                            <div class="carousel-description" style="font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); color: white;"><?php echo nl2br(esc_html($image['description'])); ?></div>
+                            <div class="carousel-description" style="font-size: clamp(14px, 3vw, 18px); line-height: 1.6; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); color: white;"><?php echo nl2br(esc_html($image['description'])); ?></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ function mon_carousel_shortcode() {
         <!-- Indicateurs de position (points) -->
         <ul class="carousel-indicators" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; padding: 0; margin: 0; list-style: none; z-index: 3;">
             <?php foreach ($carousel_images as $index => $image) : ?>
-                <li class="carousel-indicator <?php echo ($index === 0) ? 'active' : ''; ?>" style="width: 12px; height: 12px; margin: 0 8px; border-radius: 50%; background-color: <?php echo ($index === 0) ? '#000' : 'rgba(150, 150, 150, 0.7)'; ?>; cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;" data-index="<?php echo $index; ?>"></li>
+                <li onclick="void(0)" class="carousel-indicator <?php echo ($index === 0) ? 'active' : ''; ?>" style="width: 12px; height: 12px; margin: 0 8px; border-radius: 50%; background-color: <?php echo ($index === 0) ? '#000' : 'rgba(150, 150, 150, 0.7)'; ?>; cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;" data-index="<?php echo $index; ?>"></li>
             <?php endforeach; ?>
         </ul>
         
