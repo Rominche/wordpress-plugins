@@ -21,17 +21,10 @@
             let currentIndex = 0;
             
             // Masquer toutes les slides d'abord
-            $slides.css({
-                'opacity': 0,
-                'visibility': 'hidden'
-            });
+            $slides.hide();
             
             // Marquer la première slide comme active
-            $slides.eq(0).css({
-                'opacity': 1,
-                'visibility': 'visible'
-            }).addClass('active');
-            
+            $slides.eq(0).show().addClass('active');
             $indicators.eq(0).css('background-color', '#000').addClass('active');
             
             // Fonction pour déplacer vers une slide spécifique
@@ -39,18 +32,10 @@
                 if (index < 0 || index >= $slides.length) return;
                 
                 // Désactiver toutes les slides
-                $slides.removeClass('active').css({
-                    'opacity': 0,
-                    'visibility': 'hidden'
-                });
+                $slides.removeClass('active').hide();
                 
-                // Activer la slide cible avec un délai pour la transition
-                setTimeout(() => {
-                    $slides.eq(index).addClass('active').css({
-                        'opacity': 1,
-                        'visibility': 'visible'
-                    });
-                }, 50);
+                // Activer la slide cible
+                $slides.eq(index).addClass('active').show();
                 
                 // Mettre à jour les indicateurs
                 $indicators.each(function(i) {

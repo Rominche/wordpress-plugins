@@ -69,11 +69,11 @@ function mon_carousel_shortcode() {
     <div class="carousel-container" style="position: relative; width: 100%; max-width: 100%; height: 100vh; max-height: 800px; margin: 0 auto; overflow: hidden;">
         <div class="carousel-track" style="position: relative; height: 100%; width: 100%;">
             <?php foreach ($carousel_images as $image) : ?>
-                <div class="carousel-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background: url('<?php echo esc_url($image['url']); ?>') center center/cover no-repeat;">
+                <div class="carousel-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; background: url('<?php echo esc_url($image['url']); ?>') center center/cover no-repeat;">
                     <!-- Overlay sombre -->
                     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
                     
-                    <div class="carousel-content" style="position: relative; z-index: 2; color: white; text-align: center; padding: 15px; width: 90%; max-width: 800px; margin: 0 auto;">
+                    <div class="carousel-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; color: white; text-align: center; padding: 15px; width: 90%; max-width: 800px;">
                         <?php if (!empty($image['title'])) : ?>
                             <div class="carousel-caption" style="font-size: clamp(20px, 4vw, 28px); font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); color: white;"><?php echo esc_html($image['title']); ?></div>
                         <?php endif; ?>
