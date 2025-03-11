@@ -2,8 +2,7 @@
     position: relative;
     width: 100%;
     max-width: 1024px;
-    height: 500px; /* Hauteur fixe pour tous les slides, ajustez selon vos besoins */
-    max-height: 800px; /* Dimension maximale selon vos besoins */
+    height: 800px;
     margin: auto;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,16 +23,11 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .carousel-slide.active {
     opacity: 1;
+    z-index: 1;
 }
 
 .carousel-overlay {

@@ -22,6 +22,7 @@
             
             // Marquer la première slide comme active
             $slides.eq(0).addClass('active');
+            $indicators.eq(0).css('background-color', '#000').addClass('active');
             
             // Fonction pour déplacer vers une slide spécifique
             function moveToSlide(index) {
