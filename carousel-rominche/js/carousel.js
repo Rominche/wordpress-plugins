@@ -20,10 +20,12 @@
             // Variables pour le suivi
             let currentIndex = 0;
             let slideWidth = $container.width();
+            console.log('Largeur du conteneur:', slideWidth); // Log pour vérifier la largeur du conteneur
             
             // Positionner les slides côte à côte
             $slides.each(function(index) {
                 $(this).css('left', slideWidth * index + 'px');
+                console.log('Position de la slide', index, ':', slideWidth * index + 'px'); // Log pour vérifier la position de chaque slide
             });
             
             // Marquer la première slide comme active
