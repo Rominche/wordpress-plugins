@@ -13,20 +13,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Get version
         id: get_version
         run: |
           if [[ $GITHUB_REF == refs/tags/* ]]; then
-            echo "::set-output name=version::${GITHUB_REF#refs/tags/}"
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=version::latest"
+            echo "version=latest" >> $GITHUB_OUTPUT
           fi
 
       - name: Create ZIP file
         run: |
-          zip -r carousel-rominche.zip carousel-rominche -x "*.git*" -x "*.github*"
+          cd carousel-rominche
+          zip -r ../carousel-rominche.zip . -x "*.git*" -x "*.github*"
+          cd ..
 
       - name: Create Release
         id: create_release
@@ -43,4 +45,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: carousel-rominche
-          path: carousel-rominche.zip 
+          path: carousel-rominche.zip
+          retention-days: 90 
