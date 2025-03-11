@@ -28,6 +28,7 @@
             
             // Marquer la première slide comme active
             $slides.eq(0).addClass('active');
+            $indicators.eq(0).addClass('active');
             
             // Fonction pour déplacer vers une slide spécifique
             function moveToSlide(index) {
@@ -65,7 +66,7 @@
             
             // Événement pour les indicateurs
             $indicators.on('click', function() {
-                const index = $(this).data('index');
+                const index = $(this).index(); // Utiliser l'index de l'élément dans la liste
                 moveToSlide(index);
             });
             

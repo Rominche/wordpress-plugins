@@ -2,7 +2,7 @@
 /*
 Plugin Name: Carousel Rominche
 Description: Un carousel personnalisé en JavaScript avec téléversement d'images.
-Version: 1.2
+Version: 1.3
 Author: Rominche
 Author URI: https://github.com/Rominche
 Text Domain: carousel-rominche
@@ -71,17 +71,19 @@ function mon_carousel_shortcode() {
             <?php foreach ($carousel_images as $image) : ?>
                 <div class="carousel-slide">
                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['title']); ?>">
-                    <?php if (!empty($image['title'])) : ?>
-                        <div class="carousel-caption"><?php echo esc_html($image['title']); ?></div>
-                    <?php endif; ?>
-                    <?php if (!empty($image['description'])) : ?>
-                        <div class="carousel-description"><?php echo esc_html($image['description']); ?></div>
-                    <?php endif; ?>
+                    <div class="carousel-content">
+                        <?php if (!empty($image['title'])) : ?>
+                            <div class="carousel-caption"><?php echo esc_html($image['title']); ?></div>
+                        <?php endif; ?>
+                        <?php if (!empty($image['description'])) : ?>
+                            <div class="carousel-description"><?php echo esc_html($image['description']); ?></div>
+                        <?php endif; ?>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
         
-        <!-- Indicateurs de position -->
+        <!-- Indicateurs de position (points) -->
         <ul class="carousel-indicators">
             <?php foreach ($carousel_images as $index => $image) : ?>
                 <li class="carousel-indicator <?php echo ($index === 0) ? 'active' : ''; ?>" data-index="<?php echo $index; ?>"></li>

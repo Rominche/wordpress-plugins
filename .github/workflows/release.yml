@@ -26,21 +26,15 @@ jobs:
 
       - name: Create ZIP file
         run: |
-          # Créer un dossier temporaire
-          mkdir -p temp_build
-          # Copier le contenu du dossier carousel-rominche dans le dossier temporaire
-          cp -r carousel-rominche temp_build/
-          # Créer le ZIP à partir du dossier temporaire
-          cd temp_build
-          zip -r ../carousel-rominche.zip .
-          cd ..
+          # Créer le ZIP directement à partir du dossier carousel-rominche
+          zip -r plugin-carousel-rominche.zip carousel-rominche -x "*.git*" -x "*.github*"
 
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: carousel-rominche.zip
+          files: plugin-carousel-rominche.zip
           draft: false
           prerelease: false
         env:
@@ -49,6 +43,6 @@ jobs:
       - name: Upload ZIP as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: carousel-rominche
-          path: carousel-rominche.zip
+          name: plugin-carousel-rominche
+          path: plugin-carousel-rominche.zip
           retention-days: 90 

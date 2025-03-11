@@ -19,6 +19,8 @@
     position: relative;
     height: 400px; /* Hauteur fixe pour tous les slides */
     overflow: hidden;
+    /* Ajout d'un fond sombre pour améliorer la lisibilité du texte */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .carousel-slide img {
@@ -26,40 +28,47 @@
     height: 100%;
     object-fit: cover; /* Assure que l'image couvre tout l'espace sans déformation */
     display: block;
+    position: absolute; /* Position absolue pour que l'image soit en arrière-plan */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Z-index bas pour que l'image soit derrière le texte */
 }
 
-.carousel-caption {
+.carousel-content {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px 15px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Z-index plus élevé pour que le contenu soit au-dessus de l'image */
+    padding: 20px;
     text-align: center;
-    font-size: 18px;
+}
+
+.carousel-caption {
+    color: white;
+    font-size: 24px;
     font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
 }
 
 .carousel-description {
-    position: absolute;
-    top: 50px; /* Position sous le titre */
-    left: 0;
-    right: 0;
-    padding: 10px 15px;
-    text-align: center;
     color: white;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.5);
     max-width: 80%;
     margin: 0 auto;
-    border-radius: 4px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
 }
 
-/* Indicateurs de position */
+/* Indicateurs de position (points) */
 .carousel-indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 0;
     right: 0;
     display: flex;
@@ -67,6 +76,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    z-index: 3; /* Au-dessus de tout le reste */
 }
 
 .carousel-indicator {
@@ -74,13 +84,20 @@
     height: 12px;
     margin: 0 5px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(150, 150, 150, 0.7); /* Gris pour les points inactifs */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    padding: 0;
+}
+
+.carousel-indicator:hover {
+    transform: scale(1.2); /* Légère animation au survol */
 }
 
 .carousel-indicator.active {
-    background-color: white;
+    background-color: #000; /* Noir pour le point actif */
+    transform: scale(1.2); /* Légèrement plus grand pour le point actif */
 }
 
 .carousel-button {
