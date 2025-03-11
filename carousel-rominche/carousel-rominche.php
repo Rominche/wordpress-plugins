@@ -2,7 +2,7 @@
 /*
 Plugin Name: Carousel Rominche
 Description: Un carousel personnalisé en JavaScript avec téléversement d'images.
-Version: 1.3
+Version: 1.4
 Author: Rominche
 Author URI: https://github.com/Rominche
 Text Domain: carousel-rominche
@@ -58,9 +58,9 @@ function mon_carousel_shortcode() {
     // Si aucune image n'est définie, utilise des placeholders
     if (empty($carousel_images) || !is_array($carousel_images)) {
         $carousel_images = array(
-            array('url' => 'https://via.placeholder.com/800x400?text=Slide+1', 'title' => 'Slide 1', 'description' => 'Description du slide 1'),
-            array('url' => 'https://via.placeholder.com/800x400?text=Slide+2', 'title' => 'Slide 2', 'description' => 'Description du slide 2'),
-            array('url' => 'https://via.placeholder.com/800x400?text=Slide+3', 'title' => 'Slide 3', 'description' => 'Description du slide 3')
+            array('url' => 'https://via.placeholder.com/1024x800?text=Slide+1', 'title' => 'Slide 1', 'description' => 'Description du slide 1'),
+            array('url' => 'https://via.placeholder.com/1024x800?text=Slide+2', 'title' => 'Slide 2', 'description' => 'Description du slide 2'),
+            array('url' => 'https://via.placeholder.com/1024x800?text=Slide+3', 'title' => 'Slide 3', 'description' => 'Description du slide 3')
         );
     }
     
@@ -69,8 +69,7 @@ function mon_carousel_shortcode() {
     <div class="carousel-container">
         <div class="carousel-track">
             <?php foreach ($carousel_images as $image) : ?>
-                <div class="carousel-slide">
-                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['title']); ?>">
+                <div class="carousel-slide" style="background-image: url('<?php echo esc_url($image['url']); ?>');">
                     <div class="carousel-content">
                         <?php if (!empty($image['title'])) : ?>
                             <div class="carousel-caption"><?php echo esc_html($image['title']); ?></div>
@@ -149,6 +148,7 @@ function mon_carousel_admin_page() {
                 <div class="carousel-images-container">
                     <h2>Images du carousel</h2>
                     <p>Ajoutez, réorganisez et supprimez les images de votre carousel.</p>
+                    <p class="description"><strong>Note :</strong> Les dimensions recommandées pour les images sont de 1024x800 pixels. Les images plus grandes seront redimensionnées pour s'adapter.</p>
                     
                     <div id="carousel-images-list">
                         <?php if (!empty($carousel_images)) : ?>
