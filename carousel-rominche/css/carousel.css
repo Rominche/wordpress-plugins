@@ -1,7 +1,9 @@
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1024px; /* Dimension maximale selon vos besoins */
+    max-width: 1024px;
+    height: 500px; /* Hauteur fixe pour tous les slides, ajustez selon vos besoins */
+    max-height: 800px; /* Dimension maximale selon vos besoins */
     margin: auto;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -66,8 +68,8 @@
 .carousel-indicators {
     position: absolute;
     bottom: 20px;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     padding: 0;
@@ -81,7 +83,7 @@
     height: 12px;
     margin: 0 8px;
     border-radius: 50%;
-    background-color: rgba(150, 150, 150, 0.7); /* Gris pour les points inactifs */
+    background-color: rgba(150, 150, 150, 0.7);
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
@@ -93,8 +95,7 @@
 }
 
 .carousel-indicator.active {
-    background-color: #000; /* Noir pour le point actif */
-    transform: scale(1.2);
+    background-color: #000;
 }
 
 .carousel-button {

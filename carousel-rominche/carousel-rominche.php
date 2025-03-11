@@ -69,13 +69,17 @@ function mon_carousel_shortcode() {
     <div class="carousel-container">
         <div class="carousel-track">
             <?php foreach ($carousel_images as $image) : ?>
-                <div class="carousel-slide" style="background-image: url('<?php echo esc_url($image['url']); ?>');">
-                    <div class="carousel-content">
+                <div class="carousel-slide" style="background-image: url('<?php echo esc_url($image['url']); ?>'); position: relative; min-width: 100%; box-sizing: border-box; height: 500px; max-height: 800px; background-position: center; background-size: cover; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center;">
+                    <!-- Overlay sombre -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+                    
+                    <div class="carousel-content" style="position: relative; z-index: 2; color: white; text-align: center; padding: 30px; max-width: 80%;">
                         <?php if (!empty($image['title'])) : ?>
-                            <div class="carousel-caption"><?php echo esc_html($image['title']); ?></div>
+                            <div class="carousel-caption" style="font-size: 28px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); color: white;"><?php echo esc_html($image['title']); ?></div>
                         <?php endif; ?>
+                        
                         <?php if (!empty($image['description'])) : ?>
-                            <div class="carousel-description"><?php echo esc_html($image['description']); ?></div>
+                            <div class="carousel-description" style="font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); color: white;"><?php echo nl2br(esc_html($image['description'])); ?></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -83,14 +87,14 @@ function mon_carousel_shortcode() {
         </div>
         
         <!-- Indicateurs de position (points) -->
-        <ul class="carousel-indicators">
+        <ul class="carousel-indicators" style="position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; padding: 0; margin: 0; list-style: none; z-index: 3;">
             <?php foreach ($carousel_images as $index => $image) : ?>
-                <li class="carousel-indicator <?php echo ($index === 0) ? 'active' : ''; ?>" data-index="<?php echo $index; ?>"></li>
+                <li class="carousel-indicator <?php echo ($index === 0) ? 'active' : ''; ?>" style="width: 12px; height: 12px; margin: 0 8px; border-radius: 50%; background-color: <?php echo ($index === 0) ? '#000' : 'rgba(150, 150, 150, 0.7)'; ?>; cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;" data-index="<?php echo $index; ?>"></li>
             <?php endforeach; ?>
         </ul>
         
-        <button class="carousel-button prev">&#10094;</button>
-        <button class="carousel-button next">&#10095;</button>
+        <button class="carousel-button prev" style="position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; cursor: pointer; padding: 10px; z-index: 10; font-size: 18px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; left: 10px;">&#10094;</button>
+        <button class="carousel-button next" style="position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; cursor: pointer; padding: 10px; z-index: 10; font-size: 18px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; right: 10px;">&#10095;</button>
     </div>
     <?php
     return ob_get_clean(); // Retourne le contenu du carousel

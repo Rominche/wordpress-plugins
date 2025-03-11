@@ -28,7 +28,6 @@
             
             // Marquer la première slide comme active
             $slides.eq(0).addClass('active');
-            $indicators.eq(0).addClass('active');
             
             // Fonction pour déplacer vers une slide spécifique
             function moveToSlide(index) {
@@ -39,8 +38,15 @@
                 $slides.eq(index).addClass('active');
                 
                 // Mettre à jour les indicateurs
-                $indicators.removeClass('active');
-                $indicators.eq(index).addClass('active');
+                $indicators.each(function(i) {
+                    if (i === index) {
+                        $(this).css('background-color', '#000');
+                        $(this).addClass('active');
+                    } else {
+                        $(this).css('background-color', 'rgba(150, 150, 150, 0.7)');
+                        $(this).removeClass('active');
+                    }
+                });
                 
                 currentIndex = index;
                 
@@ -66,7 +72,7 @@
             
             // Événement pour les indicateurs
             $indicators.on('click', function() {
-                const index = $(this).index(); // Utiliser l'index de l'élément dans la liste
+                const index = $(this).index();
                 moveToSlide(index);
             });
             
