@@ -19,14 +19,6 @@
             
             // Variables pour le suivi
             let currentIndex = 0;
-            let slideWidth = $container.width();
-            console.log('Largeur du conteneur:', slideWidth); // Log pour vérifier la largeur du conteneur
-            
-            // Positionner les slides côte à côte
-            $slides.each(function(index) {
-                $(this).css('left', slideWidth * index + 'px');
-                console.log('Position de la slide', index, ':', slideWidth * index + 'px'); // Log pour vérifier la position de chaque slide
-            });
             
             // Marquer la première slide comme active
             $slides.eq(0).addClass('active');
@@ -35,8 +27,10 @@
             function moveToSlide(index) {
                 if (index < 0 || index >= $slides.length) return;
                 
-                $track.css('transform', 'translateX(-' + (slideWidth * index) + 'px)');
+                // Désactiver toutes les slides
                 $slides.removeClass('active');
+                
+                // Activer la slide cible
                 $slides.eq(index).addClass('active');
                 
                 // Mettre à jour les indicateurs
@@ -114,20 +108,6 @@
                     threshold: 75
                 });
             }
-            
-            // Gestion du redimensionnement de la fenêtre
-            $(window).on('resize', function() {
-                // Recalculer la largeur des slides
-                slideWidth = $container.width();
-                
-                // Repositionner les slides
-                $slides.each(function(index) {
-                    $(this).css('left', slideWidth * index + 'px');
-                });
-                
-                // Déplacer vers la slide actuelle
-                moveToSlide(currentIndex);
-            });
             
             // Initialiser l'état des boutons
             updateButtons();

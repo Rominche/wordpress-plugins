@@ -12,15 +12,20 @@
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    position: relative;
     height: 100%;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     min-width: 100%;
     box-sizing: border-box;
-    position: relative;
-    height: 500px; /* Hauteur fixe pour tous les slides, ajustez selon vos besoins */
     max-height: 800px; /* Hauteur maximale selon vos besoins */
     background-position: center;
     background-size: cover;
@@ -28,6 +33,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
 }
 
 /* Overlay sombre pour améliorer la lisibilité du texte */

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Carousel Rominche
 Description: Un carousel personnalisé en JavaScript avec téléversement d'images.
-Version: 1.5
+Version: 1.6
 Author: Rominche
 Author URI: https://github.com/Rominche
 Text Domain: carousel-rominche
