@@ -69,7 +69,7 @@ function mon_carousel_shortcode() {
     <div class="carousel-container" style="position: relative; width: 100%; max-width: 100%; height: 100vh; max-height: 800px; margin: 0 auto; overflow: hidden;">
         <div class="carousel-track" style="position: relative; height: 100%; width: 100%;">
             <?php foreach ($carousel_images as $index => $image) : ?>
-                <div class="carousel-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: <?php echo ($index === 0) ? 'block' : 'none'; ?>;">
+                <div class="carousel-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display:'block';">
                     <img src="<?php echo esc_url($image['url']); ?>" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                     
                     <!-- Overlay sombre -->
