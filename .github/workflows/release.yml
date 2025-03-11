@@ -26,8 +26,13 @@ jobs:
 
       - name: Create ZIP file
         run: |
-          cd carousel-rominche
-          zip -r ../carousel-rominche.zip . -x "*.git*" -x "*.github*"
+          # Créer un dossier temporaire
+          mkdir -p temp_build
+          # Copier le contenu du dossier carousel-rominche dans le dossier temporaire
+          cp -r carousel-rominche temp_build/
+          # Créer le ZIP à partir du dossier temporaire
+          cd temp_build
+          zip -r ../carousel-rominche.zip .
           cd ..
 
       - name: Create Release
